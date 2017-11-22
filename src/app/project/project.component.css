@@ -1,10 +1,19 @@
 :host {
   display: block;
   border: 1px solid black;
-  border-radius: 5px;
-  margin: 10px 0;
+  border-radius: 3px;
+  box-shadow: 3px 3px 2px #ccc;
+  margin: 20px 0;
+  padding: 20px;
 }
 
 :host(.marked) {
   box-shadow: 0 0 5px 5px #999;
+  border: 2px solid blue;
+  padding: 19px;
+}
+
+.form-control {
+  display: inline-block;
+  width: 50%;
 }
