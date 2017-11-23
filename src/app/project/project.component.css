@@ -13,6 +13,7 @@
 }
 
 :host(.marked) {
+  transition: box-shadow 0.3s ease-out;
   box-shadow: 0 0 5px 5px #999;
   border: 2px solid blue;
   padding: 19px;
