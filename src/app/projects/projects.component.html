@@ -38,6 +38,7 @@
       *ngFor="let prj of projects; let i = index"
       [project]="prj"
       [@markedState]="markedPrjIndex === i ? 'marked' : 'default'"
+      @newProjectState
       [ngClass]="{inactive: prj.status === 'inactive'}"
       (statusUpdated)="onStatusUpdated($event, i)"
       (projectDeleted)="onProjectDeleted(i)"
