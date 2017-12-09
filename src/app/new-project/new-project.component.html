@@ -1,5 +1,8 @@
 
-<form (ngSubmit)="onCreateProject()" #f="ngForm">
+<form
+  (ngSubmit)="onCreateProject()"
+  #f="ngForm"
+  @createNewState>
   <div class="form-group">
     <label for="name" class="control-label">Name</label>
     <input
