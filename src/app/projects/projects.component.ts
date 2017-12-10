@@ -4,6 +4,7 @@ import { Project } from './project.model';
 
 import { ProjectsService } from './projects.service';
 import { markedTrigger, newProjectTrigger } from './animations';
+import { AnimationEvent } from '@angular/animations';
 
 @Component({
   selector: 'app-projects',
@@ -13,6 +14,7 @@ import { markedTrigger, newProjectTrigger } from './animations';
 })
 export class ProjectsComponent implements OnInit {
   projects: Project[];
+  displayedProjects = new Array<Project>();
   markedPrjIndex = 0;
   progress = 'progressing';
   createNew = false;
@@ -25,6 +27,7 @@ export class ProjectsComponent implements OnInit {
         (prj: Project[]) => {
           this.progress = 'finished';
           this.projects = prj;
+          this.displayedProjects.push(prj[0]);
         }
       );
   }
@@ -40,5 +43,14 @@ export class ProjectsComponent implements OnInit {
   onProjectCreated(project: Project) {
     this.createNew = false;
     this.projects.push(project);
+  }
+
+  onItemAnimated(animationEvent: AnimationEvent, lastPrjId: number) {
+    if (animationEvent.fromState !== 'void') {
+      return;
+    }
+    if (this.projects.length > lastPrjId + 1) {
+      this.displayedProjects.push(this.projects[lastPrjId + 1]);
+    }
   }
 }
