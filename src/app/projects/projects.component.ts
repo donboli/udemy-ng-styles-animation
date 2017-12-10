@@ -38,15 +38,20 @@ export class ProjectsComponent implements OnInit {
 
   onStatusUpdated(newStatus: string, id: number) {
     this.projects[id].status = newStatus;
+    this.displayedProjects[id].status = newStatus;
   }
 
   onProjectDeleted(index: number) {
     this.projects.splice(index, 1);
+    this.displayedProjects.splice(index, 1);
   }
 
   onProjectCreated(project: Project) {
     this.createNew = false;
-    this.projects.push(project);
+    setTimeout(() => {
+      this.projects.push(project);
+      this.displayedProjects.push(project);
+    }, 300);
   }
 
   onItemAnimated(animationEvent: AnimationEvent, lastPrjId: number) {
