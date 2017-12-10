@@ -65,6 +65,22 @@ export const newProjectTrigger = trigger('newProjectState', [
         transform: 'translateX(100%)'
       })
     ]))
+  ]),
+  transition('slidUp => slidDown', [
+    style({
+      transform: 'translateY(-100%)'
+    }),
+    animate('300ms ease-out', style({
+      transform: 'translateY(0)'
+    }))
+  ]),
+  transition('slidDown => slidUp', [
+    style({
+      transform: 'translateY(0)'
+    }),
+    animate('300ms ease-out', style({
+      transform: 'translateY(-100%)'
+    }))
   ])
 ]);
 
@@ -73,7 +89,7 @@ export const slideStateTrigger = trigger('slideState', [
     style({
       transform: 'translateY(-100%)'
     }),
-    animate('500ms ease-out', style({
+    animate('300ms ease-out', style({
       transform: 'translateY(0)'
     }))
   ]),
@@ -81,7 +97,7 @@ export const slideStateTrigger = trigger('slideState', [
     style({
       transform: 'translateY(0)'
     }),
-    animate('500ms ease-in', style({
+    animate('300ms ease-in', style({
       transform: 'translateY(-100%)'
     }))
   ])
