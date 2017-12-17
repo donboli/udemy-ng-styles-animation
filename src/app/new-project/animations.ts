@@ -1,4 +1,4 @@
-import { trigger, state, style, transition, animate, group, keyframes } from '@angular/animations';
+import { trigger, state, style, transition, animate, group, keyframes, query } from '@angular/animations';
 
 export const disableTrigger = trigger('disableTrigger', [
   state('invalid', style({
@@ -42,5 +42,16 @@ export const disableTrigger = trigger('disableTrigger', [
         })
       ]))
     ])
+  ])
+]);
+
+export const formStateTrigger = trigger('formState', [
+  transition('* => *', [
+    query('input.ng-invalid:focus', [
+      animate(200, style({
+        backgroundColor: 'red'
+      })),
+      animate(200)
+    ], {optional: true})
   ])
 ]);
