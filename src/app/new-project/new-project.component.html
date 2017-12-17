@@ -38,6 +38,7 @@
   <button
     type="submit"
     [disabled]="!f.valid"
+    [@disableTrigger]="f.valid ? 'valid' : 'invalid'"
     class="btn btn-success">Create Project</button>
   <button
     type="button"
