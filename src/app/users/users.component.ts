@@ -1,15 +1,15 @@
 import { Component, OnInit, HostBinding } from '@angular/core';
 
-import { routeSlideStateTrigger } from '../shared/route-animations';
+import { routeFadeStateTrigger } from '../shared/route-animations';
 
 @Component({
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.css'],
-  animations: [routeSlideStateTrigger]
+  animations: [routeFadeStateTrigger({startOpacity: 0, duration: '100ms'})]
 })
 export class UsersComponent implements OnInit {
-  @HostBinding('@routeSlideState') routeAnimation = true;
+  @HostBinding('@routeFadeState') routeAnimation = true;
 
   constructor() { }
 
